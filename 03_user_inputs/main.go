@@ -13,7 +13,7 @@ func main() {
 
 	// Comma ok symble(err ok). mema user input gann ekt api kiynne comma ok or err ok sysmbel ek kiyla
 
-	input, _ := reader.ReadByte()
+	input, _ := reader.ReadString('\n')
 	fmt.Println(input)
 
 }
