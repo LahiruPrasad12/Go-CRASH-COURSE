@@ -46,4 +46,5 @@ func main() {
 
 /*
 	slice kiynne hriyata java vala arraylist ekk vge. meket size ek automatically expand venva
+	keep this mind. nitaram [:3] vge tibbot eliment 3k select krl 3 veni eka ain krnva. ek tama behind scenario eka
 */
