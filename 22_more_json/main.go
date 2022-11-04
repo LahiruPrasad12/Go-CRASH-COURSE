@@ -17,7 +17,8 @@ type course struct {
 func main() {
 	fmt.Println("Welcome to JSON in GoLang")
 
-	encodeJSON()
+	// encodeJSON()
+	decodeJson()
 }
 
 func encodeJSON() {
@@ -34,6 +35,40 @@ func encodeJSON() {
 
 	fmt.Printf("%s\n", finalJSON)
 	fmt.Printf("%s\n", finalFormatJSON)
+
+}
+
+func decodeJson() {
+
+	/*api req ekkin ena data nitrm tiyenne byte format eken. itin ema en json object ekk decode krn hati tama api meken igena gann
+	yanne. itin ekai me json object ek byte type eken hadal tiyenne*/
+
+	jsonData := []byte(
+		` {
+			"Name": "React JS Bootcamp",
+			"Price": 1000,
+			"PlatForm": "www.react.com",
+			"Password": "lahiru12",
+			"Tags": ["web","react"]
+		}
+		`)
+
+	var courses course
+
+	/*me hadapu fake data ek correctd nadd balagnn oni. assume syntax ema hriyt dalad blnn oni. then em check krn vidiya pahat
+	penvala tiyenva*/
+	checkValid := json.Valid(jsonData)
+
+	if checkValid {
+		fmt.Println("its valid json")
+
+		/*nikm courses dunnot eke copy ekk enn puluvn. but apita me data okkom hriytm save krnn oni. so api variable ek reference
+		ek use krnva ekt. its best practice*/
+		json.Unmarshal(jsonData, &courses)
+		fmt.Printf("%#v\n", courses) //%#v use krnne interface ekk print krnn
+	} else {
+		fmt.Println("JSON was not valid")
+	}
 
 }
 
